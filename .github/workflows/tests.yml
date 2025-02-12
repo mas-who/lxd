@@ -578,6 +578,11 @@ jobs:
         shell: bash
         run: |
           set -eux
+          echo "OIDC_CLIENT_ID=${LXD_OIDC_CLIENT_ID}"
+          echo "OIDC_ISSUER=${LXD_OIDC_ISSUER}"
+          echo "OIDC_AUDIENCE=${LXD_OIDC_AUDIENCE}"
+          echo "OIDC_USER=${LXD_OIDC_USER}"
+          echo "OIDC_PASSWORD=${LXD_OIDC_PASSWORD}"
           sudo -E LXD_DIR=/var/lib/lxd PATH=/home/runner/go/bin:$PATH ./lxd-ui/tests/scripts/setup_test
 
       - name: Run Playwright tests
